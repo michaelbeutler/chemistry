@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Container, ELEMENTS, PeriodicTable, SearchInput } from "../components";
-import { useKeyPress } from "../hooks/useKeypress";
+import { useKeyPress } from "../hooks/useKeyPress";
 
 export const getStaticProps = async ({ locale }: { locale: string }) => {
   return {
