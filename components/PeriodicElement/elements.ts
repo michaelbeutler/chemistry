@@ -8,7 +8,7 @@ export interface Element {
   numberOfElectrons: number;
   period: number;
   group?: number;
-  phase: string;
+  phase: "gas" | "solid" | "artificial" | "liq";
   radioactive: boolean;
   natural: boolean;
   metal: boolean;
@@ -2205,8 +2205,8 @@ const ELEMENTS: Element[] = [
     radioactive: true,
     natural: true,
     metal: false,
-    nonmetal: true,
-    metalloid: false,
+    nonmetal: false,
+    metalloid: true,
     type: "Noble Gas",
     atomicRadius: 1.4,
     electroNegativity: 2.2,
@@ -2230,8 +2230,8 @@ const ELEMENTS: Element[] = [
     phase: "gas",
     radioactive: true,
     natural: true,
-    metal: true,
-    nonmetal: false,
+    metal: false,
+    nonmetal: true,
     metalloid: false,
     type: "Alkali Metal",
     atomicRadius: 1.3,

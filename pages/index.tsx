@@ -3,13 +3,17 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Container, ELEMENTS, PeriodicTable, SearchInput } from "../components";
+import { ELEMENTS, PeriodicTable, SearchInput } from "../components";
 import { useKeyPress } from "../hooks/useKeyPress";
 
 export const getStaticProps = async ({ locale }: { locale: string }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "elements"])),
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "legend",
+        "elements",
+      ])),
     },
   };
 };
@@ -41,7 +45,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <Container>
+        <div className="mx-8">
           <h1 className="py-2 text-3xl">{t("title")}</h1>
 
           <SearchInput
@@ -60,7 +64,7 @@ const Home: NextPage = () => {
               ).map((e) => e.atomicNumber)}
             />
           </div>
-        </Container>
+        </div>
       </main>
     </div>
   );

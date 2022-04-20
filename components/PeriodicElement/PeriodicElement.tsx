@@ -5,61 +5,27 @@ import { Element } from "./elements";
 
 const getColor = (element: Element, reduce?: boolean): string | undefined => {
   if (reduce) {
-    return "bg-gray-200";
+    return "bg-gray-200 text-black";
   }
 
-  if (element.atomicNumber >= 104 && element.atomicNumber <= 118) {
-    return "bg-gray-700 hover:bg-gray-800 text-white";
-  }
-  if (element.atomicNumber === 57) {
-    return "bg-blue-200 hover:bg-blue-300";
-  }
-  if (element.atomicNumber === 85) {
-    return "bg-yellow-200 hover:bg-yellow-300";
-  }
-  if (element.atomicNumber === 86) {
-    return "bg-orange-200 hover:bg-orange-300";
-  }
-  if (element.atomicNumber === 87) {
+  if (element.metalloid) {
     return "bg-green-200 hover:bg-green-300";
   }
-  if (element.atomicNumber === 89) {
-    return "bg-pink-300 hover:bg-pink-300";
+
+  if (element.nonmetal) {
+    return "bg-yellow-200 hover:bg-yellow-300";
   }
 
-  if (element.atomicNumber >= 58 && element.atomicNumber <= 71) {
-    return "bg-blue-700 hover:bg-blue-800 text-white";
-  }
-
-  if (element.atomicNumber >= 90 && element.atomicNumber <= 103) {
-    return "bg-orange-700 hover:bg-orange-800 text-white";
-  }
-
-  switch (element.type) {
-    case "Nonmetal":
-    case "Halogen":
-      return "bg-cyan-200 hover:bg-cyan-300";
-    case "Alkali Metal":
-    case "Metal":
-      return "bg-green-200 hover:bg-green-300";
-    case "Alkaline Earth Metal":
-    case "Actinide":
-      return "bg-pink-400 hover:bg-pink-500";
-    case "Metalloid":
-      return "bg-yellow-200 hover:bg-yellow-300";
-    case "Transition Metal":
-      return "bg-purple-200 hover:bg-purple-300";
-    case "Noble Gas":
-      return "bg-orange-200 hover:bg-orange-300";
-    case "Transactinide":
-      return "bg-gray-700 hover:bg-gray-800 text-white";
-
-    default:
-      break;
+  if (element.metal) {
+    return "bg-blue-200 hover:bg-blue-300";
   }
 };
 
-export interface PeriodicElementProps {
+export interface PeriodicElementProps
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  > {
   element: Element;
   reduce?: boolean;
 }
@@ -75,31 +41,58 @@ export async function copyTextToClipboard(text: string) {
 const PeriodicElement: React.FC<PeriodicElementProps> = ({
   element,
   reduce,
+  className,
 }) => {
   const { t } = useTranslation("elements");
+  const r = (v: number | undefined) =>
+    v ? Math.round(v * 100) / 100 : '-';
 
   return (
     <div
       className={classnames(
-        "mx-1 md:mx-0 px-1 md:px-2 py-2 md:py-3 flex flex-col items-center w-full rounded-md transition-all",
-        getColor(element, reduce)
+        "mx-1 md:mx-0 px-1 md:px-2 py-2 md:py-3 flex flex-col items-center w-full rounded-md transition-all duration-500",
+        getColor(element, reduce),
+        className
       )}
       onClick={() => copyTextToClipboard(t(element.symbol))}
     >
       <div className="w-full flex justify-between">
-        <span className="text-xxs truncate w-full text-left">
+        <span className="text-xxs truncate w-full text-left font-semibold">
           {element.atomicNumber}
         </span>
         <span className="hidden md:block text-xxs truncate w-full text-right">
-          {element.atomicMass}
+          {r(element.atomicMass)}
         </span>
       </div>
-      <span className="text-xs md:text-xl font-bold truncate w-full text-center">
+      <span
+        className={classnames(
+          "text-xs md:text-xl font-bold truncate w-full text-center",
+          !reduce && element.phase === "gas" && "text-red-500",
+          !reduce && element.phase === "liq" && "text-blue-500"
+        )}
+      >
         {element.symbol}
+        {element.radioactive && "*"}
       </span>
       <small className="truncate w-full text-center text-xxs">
         {t(element.symbol)}
       </small>
+      <div className="w-full flex justify-between">
+        <span className="text-xxs truncate w-full text-left">
+          {r(element.meltingPoint)}
+        </span>
+        <span className="hidden md:block text-xxs truncate w-full text-right">
+          {r(element.density)}
+        </span>
+      </div>
+      <div className="w-full flex justify-between">
+        <span className="text-xxs truncate w-full text-left">
+          {r(element.boilingPoint)}
+        </span>
+        <span className="hidden md:block text-xxs truncate w-full text-right">
+          {r(element.electroNegativity)}
+        </span>
+      </div>
     </div>
   );
 };

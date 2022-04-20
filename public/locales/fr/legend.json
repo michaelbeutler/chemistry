@@ -1,0 +1,17 @@
+{
+  "metal": "Métal",
+  "metalloid": "Métalloid",
+  "nonmetal": "Non-métal",
+  "radioactive": "Radioactif",
+  "solid": "Solide",
+  "liquid": "Liquide",
+  "gas": "Gaz",
+  "atomicNumber": "Numéro atomique",
+  "atomicMass": "Masse atomique",
+  "symbol": "Symbole",
+  "element": "Element",
+  "meltingPoint": "Point de fusion",
+  "density": "Densité",
+  "boilingPoint": "Point d'ébullition",
+  "electroNegativity": "Electronégativité"
+}
