@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Container, ELEMENTS, PeriodicTable, SearchInput } from "../components";
+import { useKeyPress } from "../hooks/useKeypress";
 
 export const getStaticProps = async ({ locale }: { locale: string }) => {
   return {
@@ -17,6 +18,15 @@ const Home: NextPage = () => {
   const [query, setQuery] = useState<string>("");
   const { t } = useTranslation("common");
   const { t: tElements } = useTranslation("elements");
+  const searchInput = useRef<HTMLInputElement>(null);
+
+  useKeyPress(["⌘", "k"], () => {
+    searchInput.current?.focus();
+  });
+
+  useKeyPress(["Ctrl", "k"], () => {
+    searchInput.current?.focus();
+  });
 
   return (
     <div className="w-full h-full">
@@ -37,6 +47,7 @@ const Home: NextPage = () => {
           <SearchInput
             defaultValue={query}
             onKeyUp={(e) => setQuery(e.currentTarget.value)}
+            ref={searchInput}
           />
           <div className="py-5 overflow-x-auto">
             <PeriodicTable

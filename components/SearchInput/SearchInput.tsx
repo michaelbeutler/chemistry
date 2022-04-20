@@ -1,4 +1,5 @@
-import React from "react";
+import React, { forwardRef } from "react";
+import { useTranslation } from "react-i18next";
 
 export interface SearchInputProps
   extends React.DetailedHTMLProps<
@@ -6,12 +7,19 @@ export interface SearchInputProps
     HTMLInputElement
   > {}
 
-const SearchInput: React.FC<SearchInputProps> = ({ ...props }) => {
+const SearchInput: React.ForwardRefRenderFunction<
+  HTMLInputElement,
+  SearchInputProps
+> = ({ ...props }, ref) => {
+  const { t } = useTranslation("common");
+
   return (
     <div className="relative flex items-center">
       <input
         type="search"
         className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md"
+        ref={ref}
+        placeholder={t("search")}
         {...props}
       />
       <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
@@ -23,4 +31,4 @@ const SearchInput: React.FC<SearchInputProps> = ({ ...props }) => {
   );
 };
 
-export default SearchInput;
+export default forwardRef(SearchInput);
