@@ -12,21 +12,35 @@ const periods = [
     87, 88, 89, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116,
     117, 118,
   ],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 0],
+  [0, 0, 0, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 0],
 ];
 
-export interface PeriodicTableProps {}
+export interface PeriodicTableProps {
+  highlightedElements?: number[];
+}
 
-const PeriodicTable: React.FC<PeriodicTableProps> = () => {
+const PeriodicTable: React.FC<PeriodicTableProps> = ({
+  highlightedElements = [],
+}) => {
   return (
-    <div className="grid grid-cols-18 place-content-stretch gap-1">
+    <div className="grid grid-cols-18 place-content-stretch gap-1 min-w-max">
       {periods.map((period, periodIndex) =>
         period.map((element, elementIndex) =>
           element === 0 ? (
-            <span></span>
+            <span
+              className="h-12"
+              key={periodIndex + "-" + elementIndex}
+            ></span>
           ) : (
             <PeriodicElement
               key={periodIndex + "-" + elementIndex}
               element={ELEMENTS[element - 1]}
+              reduce={
+                highlightedElements.length > 0 &&
+                !highlightedElements.includes(element)
+              }
             />
           )
         )
