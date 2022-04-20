@@ -1,0 +1,21 @@
+module.exports = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      gridTemplateColumns: {
+        16: "repeat(16, minmax(0, 1fr))",
+        17: "repeat(17, minmax(0, 1fr))",
+        18: "repeat(18, minmax(0, 1fr))",
+      },
+      gridColumn: {
+        "span-16": "span 16 / span 16",
+        "span-17": "span 17 / span 17",
+        "span-18": "span 18 / span 18",
+      },
+    },
+  },
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
+};
