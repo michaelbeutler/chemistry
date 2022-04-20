@@ -18,7 +18,7 @@ const Home: NextPage = () => {
   const { t } = useTranslation("elements");
 
   return (
-    <div className="bg-slate-900 w-full h-full">
+    <div className="w-full h-full">
       <Head>
         <title>Periodic Table</title>
         <meta name="description" content="Periodic Table" />
