@@ -84,7 +84,7 @@ const PeriodicElement: React.FC<PeriodicElementProps> = ({
         "mx-1 md:mx-0 px-1 md:px-2 py-2 md:py-3 flex flex-col items-center w-full rounded-md transition-all",
         getColor(element, reduce)
       )}
-      onClick={() => copyTextToClipboard(element.element)}
+      onClick={() => copyTextToClipboard(t(element.symbol))}
     >
       <div className="w-full flex justify-between">
         <span className="text-xxs truncate w-full text-left">

@@ -15,38 +15,38 @@ export const getStaticProps = async ({ locale }: { locale: string }) => {
 
 const Home: NextPage = () => {
   const [query, setQuery] = useState<string>("");
-  const { t } = useTranslation("elements");
+  const { t } = useTranslation("common");
+  const { t: tElements } = useTranslation("elements");
 
   return (
     <div className="w-full h-full">
       <Head>
-        <title>Periodic Table</title>
-        <meta name="description" content="Periodic Table" />
+        <title>{t("title")}</title>
+        <meta name="description" content={t("description")} />
+        <meta property="og:title" content={t("title")} />
+        <meta property="og:description" content={t("description")} />
+        <meta property="og:url" content="https://chemistry.iperka.com/" />
+        <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <Container>
-          <h1 className="py-5 text-3xl text-white">Periodic Table</h1>
+          <h1 className="py-2 text-3xl">{t("title")}</h1>
+
           <SearchInput
             defaultValue={query}
             onKeyUp={(e) => setQuery(e.currentTarget.value)}
           />
           <div className="py-5 overflow-x-auto">
             <PeriodicTable
-              highlightedElements={
-                query.length > 1
-                  ? ELEMENTS.filter(
-                      (e) =>
-                        t(e.symbol)
-                          .toLowerCase()
-                          .includes(query.toLocaleLowerCase()) ||
-                        e.symbol
-                          .toLowerCase()
-                          .includes(query.toLocaleLowerCase())
-                    ).map((e) => e.atomicNumber)
-                  : []
-              }
+              highlightedElements={ELEMENTS.filter(
+                (e) =>
+                  tElements(e.symbol)
+                    .toLowerCase()
+                    .includes(query.toLocaleLowerCase()) ||
+                  e.symbol.toLowerCase().includes(query.toLocaleLowerCase())
+              ).map((e) => e.atomicNumber)}
             />
           </div>
         </Container>
