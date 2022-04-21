@@ -9,10 +9,10 @@ const getColor = (element: Element, reduce?: boolean): string | undefined => {
   }
 
   if (element.type === "Lanthanide") {
-    return "bg-orange-200 text-black";
+    return "bg-orange-200 hover:bg-orange-300";
   }
   if (element.type === "Actinide") {
-    return "bg-lime-200 text-black";
+    return "bg-lime-200 hover:bg-lime-300";
   }
 
   if (element.metalloid) {
