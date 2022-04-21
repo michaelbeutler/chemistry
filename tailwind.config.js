@@ -18,6 +18,7 @@ module.exports = {
         "span-16": "span 16 / span 16",
         "span-17": "span 17 / span 17",
         "span-18": "span 18 / span 18",
+        "span-19": "span 19 / span 19",
       },
       gridColumnStart: {
         13: "13",
@@ -27,6 +28,8 @@ module.exports = {
         17: "17",
         18: "18",
         19: "19",
+        19: "20",
+        19: "21",
       },
       gridRowStart: {
         13: "13",
@@ -36,6 +39,8 @@ module.exports = {
         17: "17",
         18: "18",
         19: "19",
+        19: "20",
+        19: "21",
       },
     },
   },

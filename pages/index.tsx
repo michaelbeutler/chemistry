@@ -41,11 +41,13 @@ const Home: NextPage = () => {
         <meta property="og:description" content={t("description")} />
         <meta property="og:url" content="https://chemistry.iperka.com/" />
         <meta property="og:type" content="website" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <div className="mx-8">
+        <div className="mx-2 md:mx-8">
           <h1 className="py-2 text-3xl">{t("title")}</h1>
 
           <SearchInput

@@ -1,6 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Chemistry 🧪
 
-## Getting Started
+Web application providing a visual representation of chemical structures. The app comes with a set of useful tools to help you exploring the chemical world.
+
+![Screenshot of Periodic Table](assets/periodic_table.png)
+
+## Getting Started 🚀
 
 First, run the development server:
 
@@ -18,17 +22,46 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Features 🎨
 
-To learn more about Next.js, take a look at the following resources:
+Currently the app only shows the periodic table. There are plans to add more features in the future.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Planned Features:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Oxidation Calculator
+- Reaction Calculator
 
-## Deploy on Vercel
+### Periodic Table 🔬
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The periodic table is a visual representation of the elements and their properties. You maybe already familiar with it.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+By clicking on an element, the element's full name will be copied to your clipboard. You can also search for an element by typing its name or symbol in the search bar.
+
+## Localization 🌍
+
+The app is available in multiple languages. You can change the language by navigating to the `/en`, `/de` or `/fr` route.
+
+We would love to see your translation! Don't hesitate to [open an issue](https://github.com/michaelbeutler/chemistry/issues/new) or [submit a pull request](https://github.com/michaelbeutler/chemistry/compare) to add your language.
+
+## Built with 💖
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+- [Next.js](https://nextjs.org/) is a framework for building fast and responsive web applications.
+- [Tailwind CSS](https://tailwindcss.com/) is a utility-first CSS framework for quickly building complex layouts.
+- [React](https://reactjs.org/) is a JavaScript library for building user interfaces.
+- [TypeScript](https://www.typescriptlang.org/) is a type-checking language for JavaScript.
+
+## Authors 👨‍💻
+
+- **Michael Beutler** - _Initial work_ - [MichaelBeutler](https://github.com/MichaelBeutler)
+
+## License 📃
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Contributing 🤝
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate and meet the quality gate requirements.

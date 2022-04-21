@@ -71,6 +71,10 @@ export const getColumClassName = (column: number | undefined) => {
       return "col-start-18";
     case 19:
       return "col-start-19";
+    case 20:
+      return "col-start-20";
+    case 21:
+      return "col-start-21";
     default:
       break;
   }
@@ -136,6 +140,33 @@ const PeriodicTable: React.FC<PeriodicTableProps> = ({
             getColumClassName(e.group ? e.group + 1 : e.group),
             "w-20"
           )}
+          key={e.atomicNumber}
+          element={e}
+          reduce={
+            highlightedElements.length > 0 &&
+            !highlightedElements.includes(e.atomicNumber)
+          }
+        />
+      ))}
+
+      {ELEMENTS.filter((e) => e.atomicNumber >= 57 && e.atomicNumber <= 71).map(
+        (e, i) => (
+          <PeriodicElement
+            className={getColumClassName(i + 4) + " w-20"}
+            key={e.atomicNumber}
+            element={e}
+            reduce={
+              highlightedElements.length > 0 &&
+              !highlightedElements.includes(e.atomicNumber)
+            }
+          />
+        )
+      )}
+      {ELEMENTS.filter(
+        (e) => e.atomicNumber >= 89 && e.atomicNumber <= 103
+      ).map((e, i) => (
+        <PeriodicElement
+          className={getColumClassName(i + 4) + " w-20"}
           key={e.atomicNumber}
           element={e}
           reduce={

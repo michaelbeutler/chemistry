@@ -8,6 +8,13 @@ const getColor = (element: Element, reduce?: boolean): string | undefined => {
     return "bg-gray-200 text-black";
   }
 
+  if (element.type === "Lanthanide") {
+    return "bg-orange-200 text-black";
+  }
+  if (element.type === "Actinide") {
+    return "bg-lime-200 text-black";
+  }
+
   if (element.metalloid) {
     return "bg-green-200 hover:bg-green-300";
   }
@@ -44,8 +51,7 @@ const PeriodicElement: React.FC<PeriodicElementProps> = ({
   className,
 }) => {
   const { t } = useTranslation("elements");
-  const r = (v: number | undefined) =>
-    v ? Math.round(v * 100) / 100 : '-';
+  const r = (v: number | undefined) => (v ? Math.round(v * 100) / 100 : "-");
 
   return (
     <div
@@ -60,7 +66,7 @@ const PeriodicElement: React.FC<PeriodicElementProps> = ({
         <span className="text-xxs truncate w-full text-left font-semibold">
           {element.atomicNumber}
         </span>
-        <span className="hidden md:block text-xxs truncate w-full text-right">
+        <span className="text-xxs truncate w-full text-right">
           {r(element.atomicMass)}
         </span>
       </div>
@@ -81,7 +87,7 @@ const PeriodicElement: React.FC<PeriodicElementProps> = ({
         <span className="text-xxs truncate w-full text-left">
           {r(element.meltingPoint)}
         </span>
-        <span className="hidden md:block text-xxs truncate w-full text-right">
+        <span className="text-xxs truncate w-full text-right">
           {r(element.density)}
         </span>
       </div>
@@ -89,7 +95,7 @@ const PeriodicElement: React.FC<PeriodicElementProps> = ({
         <span className="text-xxs truncate w-full text-left">
           {r(element.boilingPoint)}
         </span>
-        <span className="hidden md:block text-xxs truncate w-full text-right">
+        <span className="text-xxs truncate w-full text-right">
           {r(element.electroNegativity)}
         </span>
       </div>

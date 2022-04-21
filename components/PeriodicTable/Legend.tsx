@@ -6,7 +6,7 @@ const Legend = () => {
 
   return (
     <div>
-      <div className="grid flex-col gap-1">
+      <div className="grid flex-col gap-1 text-sm md:text-base">
         <div className="flex gap-4">
           <div className="bg-blue-200 w-10"></div>
           <span>{t("metal")}</span>

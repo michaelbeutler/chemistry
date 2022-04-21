@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
+import useIsomorphicLayoutEffect from "./useIsomorphicLayoutEffect";
 
 export const useKeyPress = (
   keys: string[],
@@ -7,7 +8,7 @@ export const useKeyPress = (
 ) => {
   // implement the callback ref pattern
   const callbackRef = useRef(callback);
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     callbackRef.current = callback;
   });
 

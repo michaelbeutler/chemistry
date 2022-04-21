@@ -14,7 +14,18 @@ export interface Element {
   metal: boolean;
   nonmetal: boolean;
   metalloid: boolean;
-  type?: string;
+  type?:
+    | "Lanthanide"
+    | "Actinide"
+    | "Nonmetal"
+    | "Noble Gas"
+    | "Alkali Metal"
+    | "Alkaline Earth Metal"
+    | "Metalloid"
+    | "Halogen"
+    | "Metal"
+    | "Transition Metal"
+    | "Transactinide";
   atomicRadius?: number;
   electroNegativity?: number;
   firstIonization?: number;
