@@ -165,11 +165,6 @@
     lodash.isplainobject "^4.0.6"
     lodash.merge "^4.6.2"
 
-"@types/algebra.js@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@types/algebra.js/-/algebra.js-0.2.2.tgz#dd0bd98d5a94f502266955547bd83668bf97da8e"
-  integrity sha512-6Jau6mqKC+3gCsYB5nyUq0oykIuKQ3X8RrhqOLXjm9ySSThuPNP668QvK8C8vyTxZUs+lqgTvVm0wLoTvo5W3w==
-
 "@types/hoist-non-react-statics@^3.3.1":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
@@ -197,13 +192,6 @@
   version "18.0.1"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.0.1.tgz#cb3cc10ea91141b12c71001fede1017acfbce4db"
   integrity sha512-jCwTXvHtRLiyVvKm9aEdHXs8rflVOGd5Sl913JZrPshfXjn8NYsTNZOz70bCsA31IR0TOqwi3ad+X4tSCBoMTw==
-  dependencies:
-    "@types/react" "*"
-
-"@types/react-mathjax@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@types/react-mathjax/-/react-mathjax-1.0.1.tgz#aa942bb5e0be09a39b2f5d629afc275aa090ce0d"
-  integrity sha512-XhOdKuHti4yLTAd+/UBXvzvAisgHU6J9CV3isLks2HDbmZCXw9CEJFHCOW19EwqaZe+oVOgOSg5IPzUd4mQGCA==
   dependencies:
     "@types/react" "*"
 
