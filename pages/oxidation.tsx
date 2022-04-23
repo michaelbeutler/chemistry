@@ -64,7 +64,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <div className="flex flex-col px-20 py-20 gap-4">
+        <div className="flex flex-row gap-6 px-20 py-20 gap-4">
           <article className="prose">
             <h1>Postulated rules</h1>
             <ol className="list-decimal">

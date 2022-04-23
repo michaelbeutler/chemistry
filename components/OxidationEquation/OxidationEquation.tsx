@@ -2,6 +2,7 @@ import classNames from "classnames";
 import React from "react";
 import { OxidationNumber } from "../";
 import { Element } from "../../helpers/elements";
+import { PeriodicElement } from "../PeriodicElement";
 
 export interface OxidationEquationProps {
   equation: { element: Element; oxidation: number; numberOfAtoms?: number }[];
@@ -53,7 +54,7 @@ const OxidationEquation: React.FC<OxidationEquationProps> = ({ equation }) => {
          * in when combined with less electronegative elements (e.g. metals).
          */
         case "H":
-            // Check if equation includes a nonmetal element
+          // Check if equation includes a nonmetal element
           if (equation.findIndex((e) => e.element.nonmetal) !== -1) {
             return { ...e, oxidation: -1 };
           }
@@ -80,7 +81,7 @@ const OxidationEquation: React.FC<OxidationEquationProps> = ({ equation }) => {
   );
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-4">
       <div className="flex items-center text-4xl font-bold gap-1">
         <span>OZ(</span>
         {equation.map((e, index) => (
@@ -104,6 +105,15 @@ const OxidationEquation: React.FC<OxidationEquationProps> = ({ equation }) => {
         >
           {result}
         </span>
+      </div>
+      <div className="flex gap-2">
+        {equation.map((e) => (
+          <PeriodicElement
+            className="w-20"
+            key={e.element.symbol}
+            element={e.element}
+          />
+        ))}
       </div>
     </div>
   );
