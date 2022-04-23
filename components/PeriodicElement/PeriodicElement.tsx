@@ -1,7 +1,7 @@
 import classnames from "classnames";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Element } from "./elements";
+import { Element } from "../../helpers/elements";
 
 const getColor = (element: Element, reduce?: boolean): string | undefined => {
   if (reduce) {

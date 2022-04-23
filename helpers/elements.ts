@@ -2930,4 +2930,10 @@ const ELEMENTS: Element[] = [
   },
 ];
 
+export const getElementBySymbol = (symbol: string): Element | undefined => {
+  return ELEMENTS.find(
+    (element) => element.symbol.toLowerCase() === symbol.toLowerCase()
+  );
+};
+
 export default ELEMENTS;
