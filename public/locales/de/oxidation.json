@@ -1,0 +1,15 @@
+{
+  "title": "Oxidation",
+  "description": "Oxidations Regeln und Beispiel mit interaktivem Oxidations-rechner.",
+  "headerRules": "Regeln",
+  "headerExample": "Beispiel",
+  "rule1": "Atome im elementaren Zustand haben immer die Oxidationszahl 0. Bei einatomigen Ionen entspricht die Oxidationszahl der Ionenladung.",
+  "rule2": "Fluor, das elektronegativste Element, hat in allen Verbindungen die Oxidationszahl -1.",
+  "rule3": "Alkalimetalle (1. Hauptgruppe) haben stets +1 als Oxidationszahl.",
+  "rule4": "Erdalkalimetalle (2. Hauptgruppe) haben stets +2 als Oxidationszahl.",
+  "rule5": "Wasserstoff hat in Verbindungen mit Nichtmetallen die Oxidationszahl +1. In Metallhydriden (LiH, MgH2) hat Wasserstoff die Oxidationszahl -1.",
+  "rule6": "Sauerstoff hat in der Regel immer die Oxidationszahl -2. Ausnahmen sind:",
+  "rule6exception1": "in Peroxiden (H2O2), dann hat es -1",
+  "rule6exception2": "in Verbindung mit Fluor (OF2), dann hat es +2",
+  "rule7": "Die Summe der Oxidationszahlen aller Atome eines mehratomigen Ions ist gleich der Gesamtladung dieses Ions."
+}

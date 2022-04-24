@@ -1,0 +1,15 @@
+{
+  "title": "Oxidation",
+  "description": "Oxidation postulated rules and example calculations with interactive calculator.",
+  "headerRules": "Postulated rules",
+  "headerExample": "Example",
+  "rule1": "The oxidation number of any atom in its elemental form is 0.",
+  "rule2": "The sum of oxidation numbers in a neutral compound is 0. The sum of the oxidation numbers in a monatomic ion is equal to the overall charge of that ion.",
+  "rule3": "The oxidation number of fluorine is always -1. Chlorine, bromine, and iodine usually have an oxidation number of -1, unless they are in combination with oxygen or fluorine.",
+  "rule4": "The oxidation number of a Group 1 element in a compound is +1. The alkali metals (group I) always have an oxidation number of +1.",
+  "rule5": "The oxidation number of a Group 2 element in a compound is +2. The alkaline earth metals (group II) are always assigned an oxidation number of +2.",
+  "rule6": "Oxygen almost always has an oxidation number of -2, except in:",
+  "rule6exception1": "peroxides (e.g. H2O2) where it is -1",
+  "rule6exception2": "compounds with fluorine (e.g. OF2) where it is +2",
+  "rule7": "The oxidation number of H is +1 when combined with more electronegative elements (e.g. non-metals) it is -1 in when combined with less electronegative elements (e.g. metals)."
+}

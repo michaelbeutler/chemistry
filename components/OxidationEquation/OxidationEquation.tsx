@@ -9,7 +9,10 @@ export interface OxidationEquationProps {
 }
 
 const OxidationEquation: React.FC<OxidationEquationProps> = ({ equation }) => {
-  if (equation.length > 1) {
+  if (
+    equation.length > 1 ||
+    equation.findIndex((e) => e.numberOfAtoms && e.numberOfAtoms > 1) !== -1
+  ) {
     equation = equation.map((e) => {
       /**
        * The oxidation number of a Group 1 element in a compound is +1.

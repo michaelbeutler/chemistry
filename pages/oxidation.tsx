@@ -3,7 +3,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ELEMENTS, OxidationEquation } from "../components";
+import { OxidationEquation } from "../components";
 import { Element, getElementBySymbol } from "../helpers/elements";
 
 export const getStaticProps = async ({ locale }: { locale: string }) => {
@@ -13,6 +13,7 @@ export const getStaticProps = async ({ locale }: { locale: string }) => {
         "common",
         "legend",
         "elements",
+        "oxidation",
       ])),
     },
   };
@@ -21,7 +22,7 @@ export const getStaticProps = async ({ locale }: { locale: string }) => {
 const evaluateOxidationEquation = (query: string) => {
   const elements: ({ element: Element; numberOfAtoms: number } | undefined)[] =
     query
-      .split(" ")
+      .split(",")
       .map((e) => e.trim())
       .map((e) => {
         const symbol = e.replace(/[^a-z]/gi, "");
@@ -46,8 +47,8 @@ const evaluateOxidationEquation = (query: string) => {
 };
 
 const Home: NextPage = () => {
-  const { t } = useTranslation("common");
-  const [query, setQuery] = useState<string>("H2 O");
+  const { t } = useTranslation("oxidation");
+  const [query, setQuery] = useState<string>("H2,O");
 
   return (
     <div className="w-full h-full">
@@ -64,50 +65,28 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <div className="flex flex-row gap-6 px-20 py-20 gap-4">
+        <div className="flex flex-col md:flex-row gap-6 px-4 md:px-20 py-5 md:py-20">
           <article className="prose">
-            <h1>Postulated rules</h1>
+            <h1>{t("headerRules")}</h1>
             <ol className="list-decimal">
+              <li>{t("rule1")}</li>
+              <li>{t("rule2")}</li>
+              <li>{t("rule3")}</li>
+              <li>{t("rule4")}</li>
+              <li>{t("rule5")}</li>
               <li>
-                The oxidation number of any atom in its elemental form is 0.
-              </li>
-              <li>
-                The sum of oxidation numbers in a neutral compound is 0. The sum
-                of the oxidation numbers in a monatomic ion is equal to the
-                overall charge of that ion.
-              </li>
-              <li>
-                The oxidation number of fluorine is always -1. Chlorine,
-                bromine, and iodine usually have an oxidation number of -1,
-                unless they are in combination with oxygen or fluorine.
-              </li>
-              <li>
-                The oxidation number of a Group 1 element in a compound is +1.
-                The alkali metals (group I) always have an oxidation number of
-                +1.
-              </li>
-              <li>
-                The oxidation number of a Group 2 element in a compound is +2.
-                The alkaline earth metals (group II) are always assigned an
-                oxidation number of +2.
-              </li>
-              <li>
-                Oxygen almost always has an oxidation number of -2, except in:
+                {t("rule6")}
                 <ul>
-                  <li>peroxides (e.g. H2O2) where it is -1</li>
-                  <li>compounds with fluorine (e.g. OF2) where it is +2</li>
+                  <li>{t("rule6exception1")}</li>
+                  <li>{t("rule6exception2")}</li>
                 </ul>
               </li>
-              <li>
-                The oxidation number of H is +1 when combined with more
-                electronegative elements (e.g. non-metals) it is -1 in when
-                combined with less electronegative elements (e.g. metals).
-              </li>
+              <li>{t("rule7")}</li>
             </ol>
           </article>
 
           <article className="prose">
-            <h1>Example</h1>
+            <h1>{t("headerExample")}</h1>
             <input
               type="text"
               defaultValue={query}
