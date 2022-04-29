@@ -137,8 +137,7 @@ const PeriodicTable: React.FC<PeriodicTableProps> = ({
         <PeriodicElement
           className={classNames(
             getRowClassName(e.period + 1),
-            getColumClassName(e.group ? e.group + 1 : e.group),
-            "w-20"
+            getColumClassName(e.group ? e.group + 1 : e.group)
           )}
           key={e.atomicNumber}
           element={e}
@@ -152,7 +151,7 @@ const PeriodicTable: React.FC<PeriodicTableProps> = ({
       {ELEMENTS.filter((e) => e.atomicNumber >= 57 && e.atomicNumber <= 71).map(
         (e, i) => (
           <PeriodicElement
-            className={getColumClassName(i + 4) + " w-20"}
+            className={getColumClassName(i + 4)}
             key={e.atomicNumber}
             element={e}
             reduce={
@@ -166,7 +165,7 @@ const PeriodicTable: React.FC<PeriodicTableProps> = ({
         (e) => e.atomicNumber >= 89 && e.atomicNumber <= 103
       ).map((e, i) => (
         <PeriodicElement
-          className={getColumClassName(i + 4) + " w-20"}
+          className={getColumClassName(i + 4)}
           key={e.atomicNumber}
           element={e}
           reduce={

@@ -3,7 +3,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ELEMENTS, PeriodicTable, SearchInput } from "../components";
+import { ELEMENTS, Navbar, PeriodicTable, SearchInput } from "../components";
 import { useKeyPress } from "../hooks/useKeyPress";
 
 export const getStaticProps = async ({ locale }: { locale: string }) => {
@@ -47,9 +47,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <div className="mx-2 md:mx-8">
-          <h1 className="py-2 text-3xl">{t("title")}</h1>
-
+        <Navbar fluid>
           <SearchInput
             defaultValue={query}
             onKeyUp={(e) => setQuery(e.currentTarget.value)}
@@ -66,7 +64,7 @@ const Home: NextPage = () => {
               ).map((e) => e.atomicNumber)}
             />
           </div>
-        </div>
+        </Navbar>
       </main>
     </div>
   );

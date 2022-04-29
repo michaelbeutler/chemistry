@@ -3,7 +3,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { OxidationEquation } from "../components";
+import { Navbar, OxidationEquation } from "../components";
 import { Element, getElementBySymbol } from "../helpers/elements";
 
 export const getStaticProps = async ({ locale }: { locale: string }) => {
@@ -65,37 +65,38 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <div className="flex flex-col md:flex-row gap-6 px-4 md:px-20 py-5 md:py-20">
-          <article className="prose">
-            <h1>{t("headerRules")}</h1>
-            <ol className="list-decimal">
-              <li>{t("rule1")}</li>
-              <li>{t("rule2")}</li>
-              <li>{t("rule3")}</li>
-              <li>{t("rule4")}</li>
-              <li>{t("rule5")}</li>
-              <li>
-                {t("rule6")}
-                <ul>
-                  <li>{t("rule6exception1")}</li>
-                  <li>{t("rule6exception2")}</li>
-                </ul>
-              </li>
-              <li>{t("rule7")}</li>
-            </ol>
-          </article>
+        <Navbar>
+          <div className="flex flex-col md:flex-row gap-6">
+            <article className="prose">
+              <ol className="list-decimal">
+                <li>{t("rule1")}</li>
+                <li>{t("rule2")}</li>
+                <li>{t("rule3")}</li>
+                <li>{t("rule4")}</li>
+                <li>{t("rule5")}</li>
+                <li>
+                  {t("rule6")}
+                  <ul>
+                    <li>{t("rule6exception1")}</li>
+                    <li>{t("rule6exception2")}</li>
+                  </ul>
+                </li>
+                <li>{t("rule7")}</li>
+              </ol>
+            </article>
 
-          <article className="prose">
-            <h1>{t("headerExample")}</h1>
-            <input
-              type="text"
-              defaultValue={query}
-              onKeyDown={(e) => setQuery(e.currentTarget.value)}
-              onChange={(e) => setQuery(e.currentTarget.value)}
-            />
-            <OxidationEquation equation={evaluateOxidationEquation(query)} />
-          </article>
-        </div>
+            <article className="prose">
+              <h1>{t("headerExample")}</h1>
+              <input
+                type="text"
+                defaultValue={query}
+                onKeyDown={(e) => setQuery(e.currentTarget.value)}
+                onChange={(e) => setQuery(e.currentTarget.value)}
+              />
+              <OxidationEquation equation={evaluateOxidationEquation(query)} />
+            </article>
+          </div>
+        </Navbar>
       </main>
     </div>
   );
